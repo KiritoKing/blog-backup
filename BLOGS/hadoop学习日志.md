@@ -102,7 +102,7 @@
 
               3. 点击新建
 
-                 <img src="https://gitee.com/KiritoKing/blog-images/raw/master/img/image-20211113164804439.png" alt="image-20211113164804439" style="zoom:80%;" />
+                 <img src="https://gitee.com/KiritoKing/blog-images/raw/master/img/202111171531183.png" alt="image-20211113164804439" style="zoom:80%;" />
 
               4. 自己命名会话，主机改成刚刚inet得到的IP地址
 
@@ -110,13 +110,13 @@
 
               5. 点接受并保存（一次性接受以后每次都会让你确认）
 
-                 <img src="C:\Users\kirito\AppData\Roaming\Typora\typora-user-images\image-20211113164931774.png" alt="image-20211113164931774" style="zoom: 80%;" />
+                 <img src="https://gitee.com/KiritoKing/blog-images/raw/master/img/image-20211113164931774.png" alt="image-20211113164931774" style="zoom: 80%;" />
 
               6. 后续窗口输入刚刚设定的root账户和密码
 
               7. 出现下述界面表示连接成功
 
-              ![image-20211113165038408](C:\Users\kirito\AppData\Roaming\Typora\typora-user-images\image-20211113165038408.png)
+              ![image-20211113165038408](C:/Users/kirito/AppData/Roaming/Typora/typora-user-images/image-20211113165038408.png)
 
               ### 配置 Linux 系统：每台虚拟机都需要设置
 
@@ -126,7 +126,7 @@
 
                  `systemctl disable firewalld`
 
-              ![image-20211113165510665](C:\Users\kirito\AppData\Roaming\Typora\typora-user-images\image-20211113165510665.png)
+              ![image-20211113165510665](https://gitee.com/KiritoKing/blog-images/raw/master/img/image-20211113165510665.png)
 
               ​	出现上述界面表示配置成功
 
@@ -150,11 +150,11 @@
 
                  - 定义完成后可以通过相同的ping主机名方法检查是否设置成功和连通
 
-                   <img src="C:\Users\kirito\AppData\Roaming\Typora\typora-user-images\image-20211113170300589.png" alt="image-20211113170300589" style="zoom:80%;" />
+                   <img src="https://gitee.com/KiritoKing/blog-images/raw/master/img/image-20211113170300589.png" alt="image-20211113170300589" style="zoom:80%;" />
 
                    【成功进入编辑模式的界面】
 
-                   ![image-20211113170313506](C:\Users\kirito\AppData\Roaming\Typora\typora-user-images\image-20211113170313506.png)
+                   ![image-20211113170313506](https://gitee.com/KiritoKing/blog-images/raw/master/img/image-20211113170313506.png)
 
                    【退出命令】
 
@@ -168,7 +168,7 @@
                  - 在本机copy-id将本机公钥发送给目标机器，表示可以从本机免密登录目标机器
                  - 根据需要我们只需要配置主机到每个从机、自身到自身的免密登录即可
 
-                 ![image-20211113170925513](C:\Users\kirito\AppData\Roaming\Typora\typora-user-images\image-20211113170925513.png)
+                 ![image-20211113170925513](https://gitee.com/KiritoKing/blog-images/raw/master/img/image-20211113170925513.png)
 
               5. 设置密钥访问权限
 
@@ -212,7 +212,7 @@
 
    【可以使用ls命令看看目录里有啥，蓝色的就是文件夹啦】
 
-![image-20211113172449182](C:\Users\kirito\AppData\Roaming\Typora\typora-user-images\image-20211113172449182.png)
+![image-20211113172449182](https://gitee.com/KiritoKing/blog-images/raw/master/img/image-20211113172449182.png)
 
 1. 配置环境变量：免得后面再改一次就放在hadoop部分一起配置了
 
@@ -279,7 +279,7 @@
      - 找到JAVA_HOME这个选项（默认是被注释的）
      - 修改为你解压的JAVA的**绝对路径**（偷懒用环境变量可能会报错）
 
-   <img src="C:\Users\kirito\AppData\Roaming\Typora\typora-user-images\image-20211113173312105.png" alt="image-20211113173312105" style="zoom:80%;" />
+   <img src="https://gitee.com/KiritoKing/blog-images/raw/master/img/image-20211113173312105.png" alt="image-20211113173312105" style="zoom:80%;" />
 
    - cd到hadoop根目录下的sbin文件夹，在以下文件的**开头**添加下面的语句
 
@@ -339,7 +339,7 @@
 
 1. 测试Hadoop安装情况：分别输入hadoop，java，若没有出现无法识别说明配置成功
 
-   ![image-20211113174444816](C:\Users\kirito\AppData\Roaming\Typora\typora-user-images\image-20211113174444816.png)
+   ![image-20211113174444816](https://gitee.com/KiritoKing/blog-images/raw/master/img/image-20211113174444816.png)
 
 2. 格式化Hadoop
 
@@ -354,15 +354,15 @@
 
    - 启动集群 `start-all.sh`
 
-     ![image-20211113175801543](C:\Users\kirito\AppData\Roaming\Typora\typora-user-images\image-20211113175801543.png)
+     ![image-20211113175801543](https://gitee.com/KiritoKing/blog-images/raw/master/img/image-20211113175801543.png)
 
    - 检查主机启动情况 `jps`
 
-     ![image-20211113175819853](C:\Users\kirito\AppData\Roaming\Typora\typora-user-images\image-20211113175819853.png)
+     ![image-20211113175819853](https://gitee.com/KiritoKing/blog-images/raw/master/img/image-20211113175819853.png)
 
    - 检查从机启动情况
 
-     ![image-20211113175923255](C:\Users\kirito\AppData\Roaming\Typora\typora-user-images\image-20211113175923255.png)
+     ![image-20211113175923255](https://gitee.com/KiritoKing/blog-images/raw/master/img/image-20211113175923255.png)
 
    - 如果运行状态和截图一致，说明启动成功惹！
 
@@ -370,7 +370,7 @@
 
    - hadoop内置了很多测试算例（可以自己百度看一看有哪些），存放在share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.1.jar 中
 
-     <img src="C:\Users\kirito\AppData\Roaming\Typora\typora-user-images\image-20211113180543627.png" alt="image-20211113180543627" style="zoom:80%;" />
+     <img src="https://gitee.com/KiritoKing/blog-images/raw/master/img/image-20211113180543627.png" alt="image-20211113180543627" style="zoom:80%;" />
 
    - 调用一个内置的PI算例
 
@@ -386,9 +386,9 @@
 
      - 若终端返回如下图结果表示集群正式搭建成功~~终于成功了，想起曾经的苦逼过程我都要写泪目了~~
 
-       ![image-20211113180744318](C:\Users\kirito\AppData\Roaming\Typora\typora-user-images\image-20211113180744318.png)
+       ![image-20211113180744318](https://gitee.com/KiritoKing/blog-images/raw/master/img/image-20211113180744318.png)
 
-       ![image-20211113180815276](C:\Users\kirito\AppData\Roaming\Typora\typora-user-images\image-20211113180815276.png)
+       ![image-20211113180815276](https://gitee.com/KiritoKing/blog-images/raw/master/img/image-20211113180815276.png)
 
 5. 来！试试看HDFS和WordCount！
 
@@ -420,11 +420,11 @@
 
    - 运行结果：运行完毕后在test.output会生成如下文件
 
-     ![image-20211113182429289](C:\Users\kirito\AppData\Roaming\Typora\typora-user-images\image-20211113182429289.png)
+     ![image-20211113182429289](https://gitee.com/KiritoKing/blog-images/raw/master/img/image-20211113182429289.png)
 
      - _SUCCESS是空文件，表示运算成功
 
      - part-r-00000是运行结果的文件，可以使用`hdfs dfs -cat`访问
 
-       ![image-20211113182617248](C:\Users\kirito\AppData\Roaming\Typora\typora-user-images\image-20211113182617248.png)
+       ![image-20211113182617248](https://gitee.com/KiritoKing/blog-images/raw/master/img/image-20211113182617248.png)
 
