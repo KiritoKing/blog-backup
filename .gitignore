@@ -1,6 +1,8 @@
 *.jpg
+*.bmp
 *.png
 *.jpeg
 *.gif
 *.doc
 *.docx
+*.bat
