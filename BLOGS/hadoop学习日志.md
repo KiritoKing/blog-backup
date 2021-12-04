@@ -12,10 +12,6 @@
 - JDK-8u202-linux-x64（1.8.202）
 - CentOS-7-2009
 
-# 我对Hadoop的理解
-
-鄙人知识浅薄，这部分还在写
-
 # Hadoop 安装与配置
 
 ## Ⅰ 环境搭建
@@ -31,6 +27,15 @@
 
   - CentOS，大家的选择！稳定又轻量！而且还免费！
   - 安装的时候可以选择最小安装，毕竟安一个桌面没啥用
+
+- 下载 TIPS：以7.9.2009为例
+
+  - 在下面的链接中找到 7.9.2009
+  - 选择isos（表示安装镜像，其他版本也是找这个文件夹）
+  - 选择x86_64（其他版本也是选这个）
+  - 选择DVD安装包（一般是最大的那个，如图所示）
+
+  ![image-20211118211934439](https://gitee.com/KiritoKing/blog-images/raw/master/img/image-20211118211934439.png)
 
 - 安装步骤
 
@@ -74,104 +79,113 @@
 
               ![image-20211113163139774](https://gitee.com/KiritoKing/blog-images/raw/master/img/image-20211113163139774.png)
 
-           4. 进入系统后用 root 账户登录（注意Linux终端输入密码是没有占位符提示的）![image-20211113163836543](https://gitee.com/KiritoKing/blog-images/raw/master/img/image-20211113163836543.png)
+           4. 进入系统后用 root 账户登录
 
+              ![image-20211113163836543](https://gitee.com/KiritoKing/blog-images/raw/master/img/image-20211113163836543.png)
+
+              **注意：**
+
+              - Linux终端输入密码没有占位提示符（看不到输入了多少位）
+              - 在虚拟机中操作时不要使用小键盘输入数字！
+                - 开了小键盘开关是可以的，但是vim编辑器不支持小键盘所以建议在操作虚拟机时都不使用小键盘
+                - 使用XShell等远程终端软件时可以使用小键盘输入
+           
            5. 安装ifconfig来查询IP（cent OS最小安装是不包含net-tools的）
-
+           
               `yum search ifconfig #在线查询与ifconfig相关的软件包`
-
+           
               `yum install net-tools.x86_64 -y #安装查询到的软件包（这里应该是你查到的包名）-y表示全部同意`
-
+           
               `ifconfig #查询IP地址`
-
+           
               如果出现连接超时可通过ping命令查询网络，按ctrl+c退出ping
-
+           
               `ping www.baidu.com`
-
+           
               ![image-20211113164431670](https://gitee.com/KiritoKing/blog-images/raw/master/img/image-20211113164431670.png)
-
+           
               出现类似上述界面表示网络已连接
-
+           
            6. **通过XShell进行远程终端控制虚拟机【此步为可选，以下操作都可以直接通过虚拟机操作，但Xshell好用而且免费啊~】**
-
+           
               1. XShell安装：省略，直接百度XShell就行
-
+           
               2. 获取ifconfig获得的ip地址：下图中 inet
-
+           
                  ![image-20211113164738561](https://gitee.com/KiritoKing/blog-images/raw/master/img/image-20211113164738561.png)
-
+           
               3. 点击新建
-
+           
                  <img src="https://gitee.com/KiritoKing/blog-images/raw/master/img/202111171531183.png" alt="image-20211113164804439" style="zoom:80%;" />
-
+           
               4. 自己命名会话，主机改成刚刚inet得到的IP地址
-
+           
                  <img src="https://gitee.com/KiritoKing/blog-images/raw/master/img/image-20211113164842524.png" alt="image-20211113164842524" style="zoom:80%;" />
-
+           
               5. 点接受并保存（一次性接受以后每次都会让你确认）
-
+           
                  <img src="https://gitee.com/KiritoKing/blog-images/raw/master/img/image-20211113164931774.png" alt="image-20211113164931774" style="zoom: 80%;" />
-
+           
               6. 后续窗口输入刚刚设定的root账户和密码
-
+           
               7. 出现下述界面表示连接成功
-
-              ![image-20211113165038408](C:/Users/kirito/AppData/Roaming/Typora/typora-user-images/image-20211113165038408.png)
-
+           
+              ![image-20211113165038408-1](https://gitee.com/KiritoKing/blog-images/raw/master/img/image-20211113165038408-1.png)
+           
               ### 配置 Linux 系统：每台虚拟机都需要设置
-
+           
               1. 关闭防火墙：防火墙会阻止结点之间的连接
-
+           
                  `systemctl stop firewalld`
-
+           
                  `systemctl disable firewalld`
-
+           
               ![image-20211113165510665](https://gitee.com/KiritoKing/blog-images/raw/master/img/image-20211113165510665.png)
-
+           
               ​	出现上述界面表示配置成功
-
+           
               2. 设置主机名并重启（也可以所有都配置完了再重启）
-
+           
                  `hostnamectl set-hostname NAME #此处NAME自己取`
-
+           
               3. 修改hosts：方便通过主机名登录，避免每次都敲IP
-
+           
                  `vi /etc/hosts #调用vi编辑器`
-
+           
                  - 进入编辑器后按i键，下方的提示会变为 -编辑模式-
-
+           
                  - 通过方向键进行移动，除了不能使用数字小键盘和鼠标操作和其他文本编辑器相同
-
+           
                  - 在hosts中应录入你所有虚拟机结点的IP和你取的名字（名字尽量和设置的主机名相同）
-
+           
                  - 录入完后按ESC，然后输入:wq（可以自行百度了解更多vim命令）
-
+           
                  - 后期你也可以在一台主机上配置完hosts后通过scp复制到其他主机上
-
+           
                  - 定义完成后可以通过相同的ping主机名方法检查是否设置成功和连通
-
+           
                    <img src="https://gitee.com/KiritoKing/blog-images/raw/master/img/image-20211113170300589.png" alt="image-20211113170300589" style="zoom:80%;" />
-
+           
                    【成功进入编辑模式的界面】
-
+           
                    ![image-20211113170313506](https://gitee.com/KiritoKing/blog-images/raw/master/img/image-20211113170313506.png)
-
+           
                    【退出命令】
-
+           
               4. 配置ssh登录
-
+           
                  `ssh-keygen -b 1024 -t rsa #在本机生成密钥和公钥，一路回车即可`
-
+           
                  `ssh-copy-id HOST-NAME #HOST-NAME是你在hosts中定义的主机名，也可以直接输入IP`
-
+           
                  - copy-id命令需要根据提示输入root密码
                  - 在本机copy-id将本机公钥发送给目标机器，表示可以从本机免密登录目标机器
                  - 根据需要我们只需要配置主机到每个从机、自身到自身的免密登录即可
-
+           
                  ![image-20211113170925513](https://gitee.com/KiritoKing/blog-images/raw/master/img/image-20211113170925513.png)
-
+           
               5. 设置密钥访问权限
-
+           
                  `chmod 600 /root/.ssh/authorized_keys #可以自己百度chmod命令说明`
 
 ## Ⅱ Hadoop 配置
