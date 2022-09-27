@@ -1,4 +1,4 @@
-# visual studio code 快捷键
+# Visual Studio Code 快捷键
 
 行移动 alt+up/down
 
